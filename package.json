@@ -1,0 +1,19 @@
+{
+  "name": "envuments",
+  "version": "1.0.0",
+  "description": "A config system built around dotenv which allows you to pull formatted data from your .env",
+  "main": "compiled/index.js",
+  "types": "compiled/index.d.ts",
+  "repository": "https://github.com/victiondev/envuments",
+  "author": "Mason Rogers <viction.dev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^13.1.8",
+    "nodemon": "^2.0.2",
+    "typescript": "^3.7.5"
+  }
+}
