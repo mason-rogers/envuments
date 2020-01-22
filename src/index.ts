@@ -1,3 +1,1 @@
-import { Envuments } from "./Envuments";
-
-export default Envuments;
+export { Envuments } from "./Envuments";
