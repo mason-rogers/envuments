@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv';
 
-import {Parser} from "./lib/Parser";
-import {EnvumentType} from "./lib/Types.enum";
+import { Parser } from "./lib/Parser";
+import { EnvumentType } from "./lib/Types.enum";
 
 let configObject: {[key: string]: any} = {};
 

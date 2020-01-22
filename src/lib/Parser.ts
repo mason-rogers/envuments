@@ -1,4 +1,4 @@
-import { Envuments } from "../";
+import Envuments from "../";
 
 export class Parser {
     private TEMPLATE_REGEX = /\${\w*}/g;
