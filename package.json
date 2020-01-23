@@ -2,6 +2,16 @@
   "name": "envuments",
   "version": "1.0.6",
   "description": "A config system which allows you to pull formatted data from your desired key-value config store.",
+  "keywords": [
+    "env",
+    ".env",
+    "dotenv",
+    "environment",
+    "variables",
+    "config",
+    "configuration",
+    "settings"
+  ],
   "main": "compiled/index.js",
   "types": "compiled/index.d.ts",
   "files": [
