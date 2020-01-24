@@ -9,8 +9,12 @@ export class Envuments {
     private parser = new Parser(this);
 
     constructor() {
-        if (!configObject || configObject === {}) { // Default to dotenv config
-            Envuments.SeedConfig(dotenv.config());
+        if (!configObject || !Object.keys(configObject).length) { // Default to dotenv config
+            try {
+                dotenv.config()
+            } catch {}
+
+            Envuments.SeedConfig(process.env);
         }
     }
 
