@@ -22,15 +22,34 @@ APP_PORT=8443
 APP_URL=http://localhost:${APP_PORT}
 ```
 
-### index.js
+### JavaScript usage exaple
 ```js
 const { Envuments } = require('envuments');
 
-const config = new Envuments();
-
-const configValue = config.get("APP_URL", "https://viction.dev");
+const configValue = Envuments.get("APP_URL", "https://viction.dev");
 
 console.log(configValue); // http://localhost:8443
+```
+
+### TypeScript usage example (without annotations)
+```ts
+import { Envuments } from 'envuments';
+
+const configValue = Envuments.get("APP_URL", "https://viction.dev");
+
+console.log(configValue); // http://localhost:8443
+```
+
+### TypeScript usage example (with annotations)
+```ts
+import { Env } from 'envuments';
+
+class ExampleConfig {
+    @Env("APP_URL", "https://viction.dev")
+    public readonly url: string;
+}
+
+console.log(new ExampleConfig().url); // http://localhost:8443 
 ```
 
 &nbsp;

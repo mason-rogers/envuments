@@ -31,5 +31,8 @@
     "@types/node": "^13.1.8",
     "nodemon": "^2.0.2",
     "typescript": "^3.7.5"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13"
   }
 }
