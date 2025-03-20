@@ -61,7 +61,7 @@ describe('Env Annotation Tests', () => {
          assert.notStrictEqual(ConfigInvalid.testBoolean2, true);
       });
 
-      it(`should return undefined string for testString3`, () => {
+      it(`should not assign a type to variable, but return undefined`, () => {
          assert.typeOf(ConfigInvalid.testString3, 'undefined');
          assert.equal(ConfigInvalid.testString3, undefined);
       });
