@@ -11,11 +11,13 @@ const envCache: { [key: string]: any } = {};
  * @param type Type of environment variable to return. Defaults to String.
  * @returns
  */
-export const Env = function (key: string, defaultVal: DefaultType = '', type: EnvType = String) {
+export const Env = function (key: string, defaultVal: DefaultType = undefined, type: EnvType = String) {
    if (!Reflect)
       throw new Error("@Env annotation used without Reflect, have you called import 'reflect-metadata'; in your code?");
 
    const computeValue = () => {
+      if (!defaultVal && type === String) return undefined;
+
       switch (type) {
          case Number:
             return Envuments.getNumber(key, Number(defaultVal));

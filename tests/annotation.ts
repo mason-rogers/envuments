@@ -46,6 +46,9 @@ describe('Env Annotation Tests', () => {
 
          @Env('TEST_BOOLEAN_2', true)
          public static testBoolean2: boolean;
+
+         @Env('TEST_STRING_3') // Test for undefined as default value
+         public static testString3: string;
       }
 
       it('should not assign a number, but string for testNumber2', () => {
@@ -56,6 +59,11 @@ describe('Env Annotation Tests', () => {
       it('should not assign a boolean, but string for testBoolean2', () => {
          assert.typeOf(ConfigInvalid.testBoolean2, 'string');
          assert.notStrictEqual(ConfigInvalid.testBoolean2, true);
+      });
+
+      it(`should return undefined string for testString3`, () => {
+         assert.typeOf(ConfigInvalid.testString3, 'undefined');
+         assert.equal(ConfigInvalid.testString3, undefined);
       });
    });
 });
