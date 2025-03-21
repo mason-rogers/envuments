@@ -1,40 +1,39 @@
-import { Envuments } from "../";
+import { Envuments } from '../';
+import { DefaultType, EnvType } from './Types.env';
 
-const envCache: {[key: string]: any} = {};
+const envCache: { [key: string]: any } = {};
 
-export const Env = function(key: string, defaultVal?: any) {
-    if (!Reflect) throw new Error("@Env annotation used without Reflect, have you called import 'reflect-metadata'; in your code?`");
+/**
+ *  @description Annotate class properties, either static or instance, to retrieve environment variables. EnvType needs to be passed in for Number and Boolean types.
+ *
+ * @param key Environment variable key to retrieve.
+ * @param defaultVal Default value to return if the environment variable is not set.
+ * @param type Type of environment variable to return. Defaults to String.
+ * @returns
+ */
+export const Env = function (key: string, defaultVal: DefaultType = undefined, type: EnvType = String) {
+   if (!Reflect)
+      throw new Error("@Env annotation used without Reflect, have you called import 'reflect-metadata'; in your code?");
 
-    return function(target: any, propertyKey: string) {
-        let value = envCache[key];
+   const computeValue = () => {
+      if (!defaultVal && type === String) return undefined;
 
-        if (value) return Object.defineProperty(target, propertyKey, {
-            value
-        });
+      switch (type) {
+         case Number:
+            return Envuments.getNumber(key, Number(defaultVal));
+         case Boolean:
+            return Envuments.getBoolean(key, Boolean(defaultVal));
+         default:
+            return Envuments.get(key, String(defaultVal));
+      }
+   };
 
-        const type = (Reflect as any).getMetadata("design:type", target, propertyKey);
-
-        switch (type) {
-            case Number: {
-                value = Envuments.getNumber(key, parseFloat(defaultVal));
-                break
-            }
-
-            case Boolean: {
-                value = Envuments.getBoolean(key, Boolean(defaultVal));
-                break;
-            }
-
-            default: {
-                value = Envuments.get(key, String(defaultVal));
-                break
-            }
-        }
-
-        envCache[key] = value;
-
-        Object.defineProperty(target, propertyKey, {
-            value
-        });
-    }
+   return function (_target: any, _propertyKey: any) {
+      let value = envCache[key];
+      if (value === undefined) {
+         value = computeValue();
+         envCache[key] = value;
+      }
+      return () => value;
+   };
 };

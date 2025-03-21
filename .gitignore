@@ -200,4 +200,7 @@ test/
 # Compiled code folders
 compiled/
 
+# OS specific folders
+.DS_Store
+
 # End of https://www.gitignore.io/api/node,jetbrains+all

@@ -1,38 +1,43 @@
 {
-  "name": "envuments",
-  "version": "1.0.8",
-  "description": "A config system which allows you to pull formatted data from your desired key-value config store.",
-  "keywords": [
-    "env",
-    ".env",
-    "dotenv",
-    "environment",
-    "variables",
-    "config",
-    "configuration",
-    "settings"
-  ],
-  "main": "compiled/index.js",
-  "types": "compiled/index.d.ts",
-  "files": [
-    "compiled"
-  ],
-  "scripts": {
-    "prepublishOnly": "tsc"
-  },
-  "repository": "https://github.com/victiondev/envuments",
-  "author": "Mason Rogers <viction.dev@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "dotenv": "^8.2.0"
-  },
-  "devDependencies": {
-    "@types/dotenv": "^8.2.0",
-    "@types/node": "^13.1.8",
-    "nodemon": "^2.0.2",
-    "typescript": "^3.7.5"
-  },
-  "peerDependencies": {
-    "reflect-metadata": "^0.1.13"
-  }
+   "name": "envuments",
+   "version": "1.1.0",
+   "description": "A config system which allows you to pull formatted data from your desired key-value config store.",
+   "keywords": [
+      "env",
+      ".env",
+      "dotenv",
+      "environment",
+      "variables",
+      "config",
+      "configuration",
+      "settings"
+   ],
+   "main": "compiled/index.js",
+   "types": "compiled/index.d.ts",
+   "files": [
+      "compiled"
+   ],
+   "scripts": {
+      "prepublishOnly": "tsc",
+      "test": "mocha --require tsx tests/**/*.ts"
+   },
+   "repository": "https://github.com/victiondev/envuments",
+   "author": "Mason Rogers <viction.dev@gmail.com>",
+   "license": "MIT",
+   "dependencies": {
+      "dotenv": "^8.2.0"
+   },
+   "devDependencies": {
+      "@types/chai": "^5.2.0",
+      "@types/mocha": "^10.0.10",
+      "@types/node": "^13.1.8",
+      "chai": "^5.2.0",
+      "mocha": "^11.1.0",
+      "nodemon": "^2.0.2",
+      "tsx": "^4.19.3",
+      "typescript": "^5.8.2"
+   },
+   "peerDependencies": {
+      "reflect-metadata": "^0.2.2"
+   }
 }
